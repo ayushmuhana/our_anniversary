@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(#ffe6ec, #fff);
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #c94b6b;
+  margin-bottom: 30px;
+}
+
+.letter {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: left;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.signature {
+  margin-top: 20px;
+  font-style: italic;
+}
+
+.signature span {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 25px;
+  background: #c94b6b;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #a63a57;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.photo img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.photo p {
+  margin-top: 8px;
+  font-size: 0.95rem;
+}
