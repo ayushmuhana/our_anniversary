@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Georgia', serif;
-  background: linear-gradient(#ffe6ec, #fff);
+  background: linear-gradient(#e6f4ff, #ffffff);
   color: #333;
 }
 
@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-  color: #c94b6b;
+  color: #2b7dbf;
   margin-bottom: 30px;
 }
 
@@ -41,7 +41,7 @@ h1 {
   display: inline-block;
   margin-top: 30px;
   padding: 12px 25px;
-  background: #c94b6b;
+  background: #2b7dbf;
   color: white;
   text-decoration: none;
   border-radius: 25px;
@@ -49,7 +49,7 @@ h1 {
 }
 
 .btn:hover {
-  background: #a63a57;
+  background: #1f5f93;
 }
 
 .gallery {
