@@ -19,10 +19,6 @@ img{
   max-width:100%;
 }
 
-svg{
-  display:block;
-}
-
 h1{
   color:#2b7dbf;
 }
@@ -79,7 +75,7 @@ html{
 }
 
 /* ================================= */
-/* JOURNEY SECTION */
+/* JOURNEY */
 /* ================================= */
 
 .journey{
@@ -94,15 +90,12 @@ html{
   line-height:1.2;
 }
 
-/* ---------- WRAPPER (prevents SVG collapse) ---------- */
-
 .journey-wrapper{
   position:relative;
-  min-height:2000px;
   padding-bottom:200px;
 }
 
-/* ---------- SVG PATH ---------- */
+/* SVG */
 
 .journey-line{
   position:absolute;
@@ -112,28 +105,26 @@ html{
   pointer-events:none;
   z-index:-1;
   overflow:visible;
+  display:block;
+  transform:translateZ(0);
 }
 
 .journey-line path{
   stroke:#b6dbf2;
-  stroke-width:6;
+  stroke-width:5;
   fill:none;
   stroke-linecap:round;
-
-  /* subtle designer glow */
   filter:drop-shadow(0 0 8px rgba(43,125,191,.35));
-
-  /* DO NOT animate infinitely — looks amateur */
-  opacity:.9;
+  opacity:.75;
 }
 
-/* ---------- JOURNEY ITEMS ---------- */
+/* ITEMS */
 
 .journey-item{
   display:flex;
   align-items:center;
   gap:80px;
-  margin:220px 0;
+  margin:180px 0;
   position:relative;
   z-index:2;
 }
@@ -150,18 +141,16 @@ html{
   flex-direction:row-reverse;
 }
 
-/* ---------- IMAGES ---------- */
+/* IMAGES */
 
 .journey-item img{
   width:480px;
+  max-width:45vw;
   height:340px;
   object-fit:cover;
   border-radius:22px;
-
   box-shadow:0 20px 60px rgba(0,0,0,.15);
-
-  transition:transform .4s ease,
-             box-shadow .4s ease;
+  transition:transform .4s ease, box-shadow .4s ease;
 }
 
 .journey-item img:hover{
@@ -169,14 +158,14 @@ html{
   box-shadow:0 30px 80px rgba(0,0,0,.18);
 }
 
-/* ---------- CARD ---------- */
+/* CARD */
 
 .card{
   max-width:420px;
   background:white;
   padding:30px;
   border-radius:20px;
-  box-shadow:0 14px 40px rgba(0,0,0,.08);
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
   line-height:1.6;
 }
 
@@ -185,7 +174,7 @@ html{
   margin-bottom:12px;
 }
 
-/* ---------- CLOSING TEXT ---------- */
+/* CLOSING */
 
 .closing{
   text-align:center;
@@ -195,9 +184,7 @@ html{
   font-weight:500;
 }
 
-/* ================================= */
 /* MOBILE */
-/* ================================= */
 
 @media(max-width:768px){
 
@@ -205,7 +192,6 @@ html{
     padding:90px 20px;
   }
 
-  /* Hide the curve — NEVER show paths on mobile */
   .journey-line{
     display:none;
   }
@@ -219,6 +205,7 @@ html{
 
   .journey-item img{
     width:100%;
+    max-width:100%;
     height:auto;
   }
 
