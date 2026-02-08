@@ -111,11 +111,12 @@ html{
   height:100%;
   pointer-events:none;
   z-index:-1;
+  overflow:visible;
 }
 
 .journey-line path{
   stroke:#b6dbf2;
-  stroke-width:.18;
+  stroke-width:6;
   fill:none;
   stroke-linecap:round;
 
@@ -133,6 +134,8 @@ html{
   align-items:center;
   gap:80px;
   margin:220px 0;
+  position:relative;
+  z_index:2;
 }
 
 .journey-item:first-child{
