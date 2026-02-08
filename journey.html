@@ -1,70 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Our Journey 📸</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Journey</title>
+
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<section class="timeline-container">
-  <h1>Our Journey 💙</h1>
 
-  <div class="timeline">
+<section class="journey">
 
-    <div class="timeline-item">
-      <div class="content">
-        <span class="date">Mar 2023</span>
-        <h3>Where it all began</h3>
-        <p>
-          I didn’t know it then, but this was the moment
-          my life quietly changed forever.
-        </p>
-        <img src="images/photo1.jpg" alt="March 2023">
-      </div>
+    <h1 class="journey-title">
+        Our Story — Across Every Lifetime 💙
+    </h1>
+
+    <div class="journey-wrapper">
+
+        <!-- SVG PATH -->
+        <svg class="journey-line" viewBox="0 0 1000 2200" preserveAspectRatio="none">
+
+            <path d="
+                M 120 80
+                C 400 250, 600 350, 780 450
+                C 920 550, 900 750, 650 820
+                C 350 900, 450 1050, 780 1150
+                C 950 1250, 920 1500, 600 1600
+                C 300 1700, 420 1900, 800 2000
+            "
+            />
+
+            <!-- glowing nodes -->
+            <circle cx="780" cy="450" r="7"/>
+            <circle cx="650" cy="820" r="7"/>
+            <circle cx="780" cy="1150" r="7"/>
+            <circle cx="600" cy="1600" r="7"/>
+            <circle cx="800" cy="2000" r="7"/>
+
+        </svg>
+
+
+        <!-- ITEMS -->
+
+        <div class="journey-item left">
+            <img src="images/timeline/prehistoric.png">
+            <div class="card">
+                <h3>Before history was written</h3>
+                <p>I think I would have found you even when the world was still wild.</p>
+            </div>
+        </div>
+
+
+        <div class="journey-item right">
+            <img src="images/timeline/10th.png">
+            <div class="card">
+                <h3>In another kingdom</h3>
+                <p>Maybe destiny was already pulling us together.</p>
+            </div>
+        </div>
+
+
+        <div class="journey-item left">
+            <img src="images/timeline/independence.png">
+            <div class="card">
+                <h3>When the world was changing</h3>
+                <p>Through revolutions and hope — side by side.</p>
+            </div>
+        </div>
+
+
+        <div class="journey-item right">
+            <img src="images/timeline/80s.png">
+            <div class="card">
+                <h3>If we met in another decade</h3>
+                <p>I know I still would’ve fallen for that smile.</p>
+            </div>
+        </div>
+
+
+        <div class="journey-item left">
+            <img src="images/timeline/modern.png">
+            <div class="card">
+                <h3>And here we are</h3>
+                <p>Every lifetime somehow led me to you.</p>
+            </div>
+        </div>
+
     </div>
 
-    <div class="timeline-item right">
-      <div class="content">
-        <span class="date">Jun 2023</span>
-        <h3>Getting closer</h3>
-        <p>
-          Somewhere between conversations and silences,
-          you started feeling like home.
-        </p>
-        <img src="images/photo2.jpg" alt="June 2023">
-      </div>
+
+    <!-- FINAL CLOSING -->
+    <div class="closing">
+        Still choosing you — in this lifetime and the next.
     </div>
 
-    <div class="timeline-item">
-      <div class="content">
-        <span class="date">Sep 2023</span>
-        <h3>Memories we still smile about</h3>
-        <p>
-          This phase taught me how much joy
-          can live in the simplest moments.
-        </p>
-        <img src="images/photo3.jpg" alt="September 2023">
-      </div>
-    </div>
-
-    <div class="timeline-item right">
-      <div class="content">
-        <span class="date">Dec 2023</span>
-        <h3>Ending the year together</h3>
-        <p>
-          Ending one year with you made me sure
-          I wanted to start every next one the same way.
-        </p>
-        <img src="images/photo4.jpg" alt="December 2023">
-      </div>
-    </div>
-
-    <!-- KEEP ADDING EVERY 3 MONTHS -->
-    <!-- Mar 2024, Jun 2024, Sep 2024, Dec 2024, Mar 2025 -->
-
-  </div>
-
-  <a href="index.html?v=2" class="btn">← Back to Letter</a>
 </section>
 
 </body>
