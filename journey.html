@@ -40,8 +40,9 @@ Our Story — Across Every Lifetime 💙
     </defs>
 
     <path
+        d=""
         stroke="#b6dbf2"
-        stroke-width="5"
+        stroke-width="8"
         fill="none"
         marker-end="url(#arrow)">
     </path>
@@ -106,73 +107,67 @@ Still choosing you — in this lifetime and the next.
 
 </section>
 
-
-
 <script>
 
-window.addEventListener("load", () => {
+window.addEventListener("load", function(){
 
     const items = document.querySelectorAll(".journey-item");
-    const path = document.querySelector(".journey-line path");
-    const wrapper = document.querySelector(".journey-wrapper");
     const svg = document.querySelector(".journey-line");
-
-
+    const path = svg.querySelector("path");
+    const wrapper = document.querySelector(".journey-wrapper");
 
     function drawPath(){
+
+        if(items.length === 0) return;
 
         const wrapperWidth = wrapper.offsetWidth;
         const wrapperHeight = wrapper.scrollHeight;
 
+        // VERY IMPORTANT
+        svg.setAttribute("viewBox", `0 0 ${wrapperWidth} ${wrapperHeight}`);
         svg.setAttribute("height", wrapperHeight);
 
-        const points = [];
+        let d = "";
 
-        items.forEach((item, i) => {
+        items.forEach((item, i)=>{
 
             const x = i % 2 === 0
-                ? wrapperWidth * 0.35
-                : wrapperWidth * 0.65;
+                ? wrapperWidth * 0.3
+                : wrapperWidth * 0.7;
 
-            const y = item.offsetTop + item.offsetHeight / 2;
+            const y = item.offsetTop + item.offsetHeight/2;
 
-            points.push([x, y]);
+            if(i === 0){
+                d += `M ${x} ${y}`;
+            }else{
+
+                const prevX = i % 2 === 0
+                    ? wrapperWidth * 0.7
+                    : wrapperWidth * 0.3;
+
+                const prevY =
+                    items[i-1].offsetTop +
+                    items[i-1].offsetHeight/2;
+
+                const curve = 250;
+
+                d += ` C ${prevX} ${prevY + curve},
+                        ${x} ${y - curve},
+                        ${x} ${y}`;
+            }
         });
-
-
-
-        let d = `M ${points[0][0]} ${points[0][1]}`;
-
-
-        for(let i = 1; i < points.length; i++){
-
-            const [x, y] = points[i];
-            const [prevX, prevY] = points[i-1];
-
-            const curveStrength = 180;
-
-            d += `
-                C ${prevX} ${prevY + curveStrength},
-                  ${x} ${y - curveStrength},
-                  ${x} ${y}
-            `;
-        }
-
 
         path.setAttribute("d", d);
     }
 
     drawPath();
 
+    // resize safe
+    let resizeTimer;
 
-    // Resize-safe (debounced)
-    let resizeTimeout;
-
-    window.addEventListener("resize", () => {
-
-        clearTimeout(resizeTimeout);
-
-        resizeTimeout = setTimeout(drawPath, 150);
+    window.addEventListener("resize", ()=>{
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(drawPath, 200);
     });
 
 });
