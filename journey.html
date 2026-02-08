@@ -18,12 +18,8 @@ Our Story — Across Every Lifetime 💙
 
 <div class="journey-wrapper">
 
-
 <!-- SVG LINE -->
-<svg class="journey-line"
-     width="100%"
-     height="100%"
-     preserveAspectRatio="none">
+<svg class="journey-line" preserveAspectRatio="none">
 
     <defs>
         <marker id="arrow"
@@ -33,23 +29,21 @@ Our Story — Across Every Lifetime 💙
                 refY="6"
                 orient="auto">
 
-            <path d="M0,0 L12,6 L0,12 Z"
-                  fill="#b6dbf2"></path>
+            <!-- THIS is the arrow shape -->
+            <path d="M0,0 L12,6 L0,12 Z" fill="#b6dbf2"></path>
 
         </marker>
     </defs>
 
-    <path
-        d=""
-        stroke="#b6dbf2"
-        stroke-width="8"
-        fill="none"
-        marker-end="url(#arrow)">
+    <!-- THIS is the curve that JS will draw -->
+    <path d=""
+          stroke="red"
+          stroke-width="12"
+          fill="none"
+          marker-end="url(#arrow)">
     </path>
 
 </svg>
-
-
 
 <!-- MEMORY ITEMS -->
 
@@ -161,6 +155,8 @@ window.addEventListener("load", function(){
     }
 
     drawPath();
+    console.log(path);
+    console.log(path.getAttribute("d"));
 
     // resize safe
     let resizeTimer;
