@@ -1,110 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Journey</title>
-
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Journey</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <section class="journey">
+  <h1 class="journey-title">Our Story — Across Every Lifetime 💙</h1>
+  <div class="journey-wrapper">
 
-    <h1 class="journey-title">
-        Our Story — Across Every Lifetime 💙
-    </h1>
+    <!-- SVG PATH -->
+    <svg class="journey-line" viewBox="0 0 1200 2200" preserveAspectRatio="none">
+      <defs>
+        <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+          <path d="M0,0 L12,6 L0,12 Z" fill="#b6dbf2"></path>
+        </marker>
+      </defs>
+      <path d="" stroke="#b6dbf2" stroke-width="6" fill="none" marker-end="url(#arrow)"></path>
+    </svg>
 
-    <div class="journey-wrapper">
-
-        <!-- SVG PATH -->
-        <svg class="journey-line"
-             viewBox="0 0 1200 2200"
-             preserveAspectRatio="none">
-        
-          <defs>
-            <marker id="arrow"
-                    markerWidth="12"
-                    markerHeight="12"
-                    refX="10"
-                    refY="6"
-                    orient="auto">
-              <path d="M0,0 L12,6 L0,12 Z" fill="#b6dbf2"></path>
-            </marker>
-          </defs>
-        
-          <path
-            d="M 100 100
-               C 400 200, 800 0, 1100 300   
-               C 400 600, 800 400, 1100 700 
-               C 400 1000, 800 800, 1100 1100 
-               C 400 1400, 800 1200, 1100 1500 
-               C 400 1800, 800 1600, 1100 1900 
-            "
-            stroke="#b6dbf2"
-            stroke-width="6"
-            fill="none"
-            marker-end="url(#arrow)">
-          </path>
-        
-        </svg>
-
-
-        <!-- ITEMS -->
-
-        <div class="journey-item">
-            <img src="timeline/Pre-Historic.png">
-            <div class="card">
-                <h3>Before history was written</h3>
-                <p>I think I would have found you even when the world was still wild.</p>
-            </div>
-        </div>
-
-
-        <div class="journey-item right">
-            <img src="timeline/10th Century.png">
-            <div class="card">
-                <h3>In another kingdom</h3>
-                <p>Maybe destiny was already pulling us together.</p>
-            </div>
-        </div>
-
-
-        <div class="journey-item">
-            <img src="timeline/Pre_Independence.png">
-            <div class="card">
-                <h3>When the world was changing</h3>
-                <p>Through revolutions and hope — side by side.</p>
-            </div>
-        </div>
-
-
-        <div class="journey-item right">
-            <img src="timeline/80s.png">
-            <div class="card">
-                <h3>If we met in another decade</h3>
-                <p>I know I still would’ve fallen for that smile.</p>
-            </div>
-        </div>
-
-
-        <div class="journey-item">
-            <img src="timeline/Modern.png">
-            <div class="card">
-                <h3>And here we are</h3>
-                <p>Every lifetime somehow led me to you.</p>
-            </div>
-        </div>
-
+    <!-- ITEMS -->
+    <div class="journey-item">
+      <img src="timeline/Pre-Historic.png">
+      <div class="card">
+        <h3>Before history was written</h3>
+        <p>I think I would have found you even when the world was still wild.</p>
+      </div>
     </div>
 
-
-    <div class="closing">
-        Still choosing you — in this lifetime and the next.
+    <div class="journey-item right">
+      <img src="timeline/10th Century.png">
+      <div class="card">
+        <h3>In another kingdom</h3>
+        <p>Maybe destiny was already pulling us together.</p>
+      </div>
     </div>
 
+    <div class="journey-item">
+      <img src="timeline/Pre_Independence.png">
+      <div class="card">
+        <h3>When the world was changing</h3>
+        <p>Through revolutions and hope — side by side.</p>
+      </div>
+    </div>
+
+    <div class="journey-item right">
+      <img src="timeline/80s.png">
+      <div class="card">
+        <h3>If we met in another decade</h3>
+        <p>I know I still would’ve fallen for that smile.</p>
+      </div>
+    </div>
+
+    <div class="journey-item">
+      <img src="timeline/Modern.png">
+      <div class="card">
+        <h3>And here we are</h3>
+        <p>Every lifetime somehow led me to you.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="closing">Still choosing you — in this lifetime and the next.</div>
 </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".journey-item");
+  const svg = document.querySelector(".journey-line");
+  const path = svg.querySelector("path");
+  const wrapper = document.querySelector(".journey-wrapper");
+
+  function updatePath(){
+    const wrapperRect = wrapper.getBoundingClientRect();
+    const points = Array.from(items).map(item => {
+      const rect = item.getBoundingClientRect();
+      const x = wrapperRect.width / 2; // center horizontally
+      const y = rect.top + rect.height / 2 - wrapperRect.top; // relative to wrapper
+      return [x, y];
+    });
+
+    let d = `M ${points[0][0]} ${points[0][1]}`;
+    for (let i = 1; i < points.length; i++) {
+      const [x, y] = points[i];
+      const [prevX, prevY] = points[i - 1];
+      const midX = (prevX + x) / 2;
+      const midY = (prevY + y) / 2;
+      d += ` Q ${midX} ${midY}, ${x} ${y}`;
+    }
+    path.setAttribute("d", d);
+  }
+
+  updatePath();
+  window.addEventListener("resize", updatePath);
+});
+</script>
 
 </body>
 </html>
