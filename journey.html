@@ -19,31 +19,40 @@
     <div class="journey-wrapper">
 
         <!-- SVG PATH -->
-        <svg class="journey-line" viewBox="0 0 1000 2200" preserveAspectRatio="none">
+        <svg class="journey-line"
+             viewBox="-2 -3 26 16"
+             preserveAspectRatio="xMidYMid meet">
 
-            <path d="
-                M 120 80
-                C 400 250, 600 350, 780 450
-                C 920 550, 900 750, 650 820
-                C 350 900, 450 1050, 780 1150
-                C 950 1250, 920 1500, 600 1600
-                C 300 1700, 420 1900, 800 2000
-            "
-            />
+            <defs>
+                <marker id="arrow"
+                        markerWidth="6"
+                        markerHeight="6"
+                        refX="5"
+                        refY="3"
+                        orient="auto">
 
-            <!-- glowing nodes -->
-            <circle cx="780" cy="450" r="7"/>
-            <circle cx="650" cy="820" r="7"/>
-            <circle cx="780" cy="1150" r="7"/>
-            <circle cx="600" cy="1600" r="7"/>
-            <circle cx="800" cy="2000" r="7"/>
+                    <path d="M0,0 L6,3 L0,6 Z" fill="#b6dbf2"></path>
+                </marker>
+            </defs>
+
+            <path
+                d="M 0 0 
+                   C 0.6667 0.6667 1 2 4 2 
+                   C 6 2 7 5 5 5 
+                   C 3 5 5 2 8 4 
+                   C 10 5 10 9 10 7"
+                stroke="#b6dbf2"
+                stroke-width="0.18"
+                fill="none"
+                marker-end="url(#arrow)">
+            </path>
 
         </svg>
 
 
         <!-- ITEMS -->
 
-        <div class="journey-item left">
+        <div class="journey-item">
             <img src="timeline/Pre-Historic.png">
             <div class="card">
                 <h3>Before history was written</h3>
@@ -61,7 +70,7 @@
         </div>
 
 
-        <div class="journey-item left">
+        <div class="journey-item">
             <img src="timeline/Pre_Independence.png">
             <div class="card">
                 <h3>When the world was changing</h3>
@@ -79,7 +88,7 @@
         </div>
 
 
-        <div class="journey-item left">
+        <div class="journey-item">
             <img src="timeline/Modern.png">
             <div class="card">
                 <h3>And here we are</h3>
@@ -90,7 +99,6 @@
     </div>
 
 
-    <!-- FINAL CLOSING -->
     <div class="closing">
         Still choosing you — in this lifetime and the next.
     </div>
