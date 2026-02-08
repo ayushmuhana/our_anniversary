@@ -135,7 +135,7 @@ html{
   gap:80px;
   margin:220px 0;
   position:relative;
-  z_index:2;
+  z-index:2;
 }
 
 .journey-item:first-child{
