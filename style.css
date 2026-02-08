@@ -1,21 +1,39 @@
-/* ============================= */
+/* ================================= */
 /* BASE */
-/* ============================= */
+/* ================================= */
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 body{
-  margin:0;
   font-family:'Georgia', serif;
-  background:linear-gradient(#e6f4ff, #ffffff);
+  background:linear-gradient(#e6f4ff,#ffffff);
   color:#333;
+}
+
+img{
+  display:block;
+  max-width:100%;
+}
+
+svg{
+  display:block;
 }
 
 h1{
   color:#2b7dbf;
 }
 
-/* ============================= */
+html{
+  scroll-behavior:smooth;
+}
+
+/* ================================= */
 /* LETTER PAGE */
-/* ============================= */
+/* ================================= */
 
 .container{
   max-width:800px;
@@ -52,7 +70,7 @@ h1{
   color:white;
   text-decoration:none;
   border-radius:30px;
-  transition:.3s;
+  transition:.25s;
 }
 
 .btn:hover{
@@ -60,27 +78,31 @@ h1{
   transform:translateY(-2px);
 }
 
-/* ============================= */
-/* JOURNEY */
-/* ============================= */
+/* ================================= */
+/* JOURNEY SECTION */
+/* ================================= */
 
 .journey{
   max-width:1100px;
   margin:auto;
   padding:140px 20px;
-  position:relative;
 }
 
 .journey-title{
   text-align:center;
   margin-bottom:160px;
+  line-height:1.2;
 }
 
-/* ---------- SVG PATH ---------- */
+/* ---------- WRAPPER (prevents SVG collapse) ---------- */
 
 .journey-wrapper{
   position:relative;
+  min-height:2000px;
+  padding-bottom:200px;
 }
+
+/* ---------- SVG PATH ---------- */
 
 .journey-line{
   position:absolute;
@@ -93,41 +115,39 @@ h1{
 
 .journey-line path{
   stroke:#b6dbf2;
-  stroke-width:5;
+  stroke-width:.18;
   fill:none;
   stroke-linecap:round;
 
-  filter:drop-shadow(0 0 10px rgba(43,125,191,.35));
+  /* subtle designer glow */
+  filter:drop-shadow(0 0 8px rgba(43,125,191,.35));
 
-  stroke-dasharray:12;
-  animation:flow 30s linear infinite;
+  /* DO NOT animate infinitely — looks amateur */
+  opacity:.9;
 }
 
-.journey-line circle{
-  fill:#2b7dbf;
-  filter:drop-shadow(0 0 8px rgba(43,125,191,.6));
-}
-
-@keyframes flow{
-  from{stroke-dashoffset:0;}
-  to{stroke-dashoffset:1000;}
-}
-
-/* ---------- ITEMS ---------- */
+/* ---------- JOURNEY ITEMS ---------- */
 
 .journey-item{
   display:flex;
   align-items:center;
   gap:80px;
-  margin:280px 0;
-  position:relative;
+  margin:220px 0;
+}
+
+.journey-item:first-child{
+  margin-top:120px;
+}
+
+.journey-item:last-child{
+  margin-bottom:120px;
 }
 
 .journey-item.right{
   flex-direction:row-reverse;
 }
 
-/* ---------- IMAGE ---------- */
+/* ---------- IMAGES ---------- */
 
 .journey-item img{
   width:480px;
@@ -135,15 +155,15 @@ h1{
   object-fit:cover;
   border-radius:22px;
 
-  box-shadow:0 30px 80px rgba(0,0,0,.18);
+  box-shadow:0 20px 60px rgba(0,0,0,.15);
 
-  transition:transform .45s ease,
-             box-shadow .45s ease;
+  transition:transform .4s ease,
+             box-shadow .4s ease;
 }
 
 .journey-item img:hover{
   transform:scale(1.05);
-  box-shadow:0 40px 100px rgba(0,0,0,.22);
+  box-shadow:0 30px 80px rgba(0,0,0,.18);
 }
 
 /* ---------- CARD ---------- */
@@ -154,6 +174,7 @@ h1{
   padding:30px;
   border-radius:20px;
   box-shadow:0 14px 40px rgba(0,0,0,.08);
+  line-height:1.6;
 }
 
 .card h3{
@@ -161,7 +182,7 @@ h1{
   margin-bottom:12px;
 }
 
-/* ---------- CLOSING ---------- */
+/* ---------- CLOSING TEXT ---------- */
 
 .closing{
   text-align:center;
@@ -171,18 +192,19 @@ h1{
   font-weight:500;
 }
 
-/* ============================= */
+/* ================================= */
 /* MOBILE */
-/* ============================= */
+/* ================================= */
 
-@media (max-width:768px){
+@media(max-width:768px){
 
   .journey{
     padding:90px 20px;
   }
 
+  /* Hide the curve — NEVER show paths on mobile */
   .journey-line{
-    display:none; /* NEVER show curves on mobile */
+    display:none;
   }
 
   .journey-item,
@@ -201,4 +223,5 @@ h1{
     margin-top:120px;
     font-size:1.3rem;
   }
+
 }
