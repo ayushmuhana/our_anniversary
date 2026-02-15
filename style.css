@@ -1,6 +1,4 @@
-/* ================================= */
-/* BASE */
-/* ================================= */
+/* ===== Base ===== */
 
 *{
   box-sizing:border-box;
@@ -19,77 +17,23 @@ img{
   max-width:100%;
 }
 
-h1{
-  color:#2b7dbf;
-}
-
 html{
   scroll-behavior:smooth;
 }
 
-/* ================================= */
-/* LETTER PAGE */
-/* ================================= */
-
-.container{
-  max-width:800px;
-  margin:auto;
-  padding:40px 20px;
-  text-align:center;
-}
-
-.letter{
-  font-size:1.1rem;
-  line-height:1.8;
-  text-align:left;
-  background:white;
-  padding:25px;
-  border-radius:12px;
-  box-shadow:0 12px 30px rgba(0,0,0,0.08);
-}
-
-.signature{
-  margin-top:20px;
-  font-style:italic;
-}
-
-.signature span{
-  font-size:0.9rem;
-  color:#777;
-}
-
-.btn{
-  display:inline-block;
-  margin-top:30px;
-  padding:12px 26px;
-  background:#2b7dbf;
-  color:white;
-  text-decoration:none;
-  border-radius:30px;
-  transition:.25s;
-}
-
-.btn:hover{
-  background:#1f5f93;
-  transform:translateY(-2px);
-}
-
-/* ================================= */
-/* JOURNEY */
-/* ================================= */
+/* ===== Journey Section ===== */
 
 .journey{
   max-width:1100px;
   margin:auto;
   padding:140px 20px;
   position:relative;
-  z-index:1;
 }
 
 .journey-title{
   text-align:center;
   margin-bottom:160px;
-  line-height:1.2;
+  color:#2b7dbf;
 }
 
 .journey-wrapper{
@@ -97,30 +41,25 @@ html{
   padding-bottom:200px;
 }
 
-/* SVG */
+/* ===== SVG Curve ===== */
 
 .journey-line{
   position:absolute;
   inset:0;
-  width:100%;
-  height:100%;
   pointer-events:none;
-  z-index:1;
-  overflow:visible;
-  display:block;
-  transform:translateZ(0);
+  z-index:1; /* below items */
 }
 
 .journey-line path{
   stroke:#b6dbf2;
-  stroke-width:5;
+  stroke-width:4;
   fill:none;
   stroke-linecap:round;
-  filter:drop-shadow(0 0 8px rgba(43,125,191,.35));
-  opacity:.75;
+  opacity:.6;
+  filter:drop-shadow(0 0 6px rgba(43,125,191,.3));
 }
 
-/* ITEMS */
+/* ===== Items ===== */
 
 .journey-item{
   display:flex;
@@ -128,22 +67,14 @@ html{
   gap:80px;
   margin:180px 0;
   position:relative;
-  z-index:2;
-}
-
-.journey-item:first-child{
-  margin-top:120px;
-}
-
-.journey-item:last-child{
-  margin-bottom:120px;
+  z-index:2; /* above curve */
 }
 
 .journey-item.right{
   flex-direction:row-reverse;
 }
 
-/* IMAGES */
+/* ===== Images ===== */
 
 .journey-item img{
   width:480px;
@@ -152,15 +83,14 @@ html{
   object-fit:cover;
   border-radius:22px;
   box-shadow:0 20px 60px rgba(0,0,0,.15);
-  transition:transform .4s ease, box-shadow .4s ease;
+  transition:transform .4s ease;
 }
 
 .journey-item img:hover{
   transform:scale(1.05);
-  box-shadow:0 30px 80px rgba(0,0,0,.18);
 }
 
-/* CARD */
+/* ===== Card ===== */
 
 .card{
   max-width:420px;
@@ -176,7 +106,7 @@ html{
   margin-bottom:12px;
 }
 
-/* CLOSING */
+/* ===== Closing ===== */
 
 .closing{
   text-align:center;
@@ -186,7 +116,7 @@ html{
   font-weight:500;
 }
 
-/* MOBILE */
+/* ===== Mobile ===== */
 
 @media(max-width:768px){
 
@@ -207,7 +137,6 @@ html{
 
   .journey-item img{
     width:100%;
-    max-width:100%;
     height:auto;
   }
 
@@ -215,5 +144,4 @@ html{
     margin-top:120px;
     font-size:1.3rem;
   }
-
 }
