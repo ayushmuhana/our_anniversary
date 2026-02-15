@@ -14,9 +14,16 @@ html{
 
 body{
   font-family:'Georgia', serif;
-  background:linear-gradient(#e6f4ff,#f7fbff);
   color:#2f2f2f;
   line-height:1.6;
+
+  background:
+    linear-gradient(rgba(255,250,240,.80), rgba(255,250,240,.80)),
+    url("assets/paper-bg.jpg");
+
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
 }
 
 /* ================================= */
