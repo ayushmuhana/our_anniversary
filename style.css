@@ -1,5 +1,5 @@
 /* ================================= */
-/* BASE */
+/* GLOBAL RESET */
 /* ================================= */
 
 *{
@@ -14,17 +14,110 @@ html{
 
 body{
   font-family:'Georgia', serif;
-  background:linear-gradient(#e6f4ff,#ffffff);
-  color:#333;
+  background:linear-gradient(#e6f4ff,#f7fbff);
+  color:#2f2f2f;
+  line-height:1.6;
 }
 
-img{
-  display:block;
-  max-width:100%;
+/* ================================= */
+/* TYPOGRAPHY */
+/* ================================= */
+
+h1,h2,h3{
+  font-weight:600;
+  letter-spacing:.5px;
 }
 
 h1{
   color:#2b7dbf;
+}
+
+p{
+  font-size:1rem;
+  opacity:.9;
+}
+
+/* ================================= */
+/* PAPER CARD STYLE (GLOBAL) */
+/* ================================= */
+
+.card{
+  background:#ffffff;
+  padding:28px;
+  border-radius:14px;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.06),
+    0 2px 6px rgba(0,0,0,.04);
+
+  position:relative;
+}
+
+/* subtle paper tape effect */
+.card::before{
+  content:"";
+  position:absolute;
+  top:-12px;
+  left:40px;
+  width:60px;
+  height:20px;
+  background:rgba(43,125,191,.15);
+  transform:rotate(-6deg);
+  border-radius:4px;
+}
+
+/* ================================= */
+/* BUTTON STYLE */
+/* ================================= */
+
+.btn{
+  display:inline-block;
+  margin-top:30px;
+  padding:12px 26px;
+  background:#2b7dbf;
+  color:white;
+  text-decoration:none;
+  border-radius:30px;
+  transition:.25s;
+  box-shadow:0 6px 18px rgba(43,125,191,.25);
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 22px rgba(43,125,191,.35);
+}
+
+/* ================================= */
+/* LETTER PAGE */
+/* ================================= */
+
+.container{
+  max-width:820px;
+  margin:auto;
+  padding:70px 20px 50px 20px;
+  text-align:center;
+}
+
+.letter{
+  margin-top:30px;
+  text-align:left;
+  background:#ffffff;
+  padding:32px;
+  border-radius:16px;
+  box-shadow:0 15px 35px rgba(0,0,0,.08);
+  transform:rotate(-0.5deg);
+}
+
+.signature{
+  margin-top:25px;
+  font-style:italic;
+}
+
+.signature span{
+  display:block;
+  margin-top:4px;
+  font-size:.9rem;
+  opacity:.7;
 }
 
 /* ================================= */
@@ -34,29 +127,23 @@ h1{
 .journey{
   max-width:1100px;
   margin:auto;
-  padding:90px 20px 70px 20px;
-  position:relative;
+  padding:70px 20px 60px 20px;
 }
 
 .journey-title{
   text-align:center;
   margin-bottom:90px;
-  line-height:1.15;
-  font-size:2.4rem;
-  letter-spacing:.5px;
+  font-size:2.2rem;
 }
 
-/* ================================= */
 /* WRAPPER */
-/* ================================= */
 
 .journey-wrapper{
   position:relative;
+  padding-bottom:80px;
 }
 
-/* ================================= */
 /* SVG CURVE */
-/* ================================= */
 
 .journey-line{
   position:absolute;
@@ -64,17 +151,14 @@ h1{
   width:100%;
   height:100%;
   pointer-events:none;
-  z-index:1;
-  overflow:visible;
+  z-index:0;
 }
 
 .journey-line path{
-  stroke:#b6dbf2;
-  stroke-width:6;
+  stroke:#2b7dbf;
+  stroke-width:3;
   fill:none;
-  stroke-linecap:round;
-  opacity:.8;
-  filter:drop-shadow(0 0 10px rgba(43,125,191,.35));
+  opacity:.25;
 }
 
 /* ================================= */
@@ -84,19 +168,10 @@ h1{
 .journey-item{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:60px;
-  margin:140px 0;
+  gap:40px;
+  margin:100px 0;
   position:relative;
   z-index:2;
-}
-
-.journey-item:first-child{
-  margin-top:40px;
-}
-
-.journey-item:last-child{
-  margin-bottom:40px;
 }
 
 .journey-item.right{
@@ -104,46 +179,51 @@ h1{
 }
 
 /* ================================= */
-/* IMAGES */
+/* SCRAPBOOK IMAGE STYLE */
 /* ================================= */
 
 .journey-item img{
   width:460px;
-  max-width:44vw;
+  max-width:45vw;
   height:320px;
   object-fit:cover;
-  border-radius:24px;
-  box-shadow:0 20px 60px rgba(0,0,0,.15);
-  transition:transform .35s ease, box-shadow .35s ease;
+
+  padding:14px;
+  background:white;
+  border-radius:10px;
+
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.12);
+
+  transform:rotate(-1.5deg);
+  transition:.4s ease;
+}
+
+/* alternate slight rotation for variation */
+.journey-item.right img{
+  transform:rotate(1.5deg);
 }
 
 .journey-item img:hover{
-  transform:scale(1.04);
-  box-shadow:0 28px 80px rgba(0,0,0,.18);
+  transform:scale(1.03) rotate(0deg);
 }
 
 /* ================================= */
-/* CARD */
+/* CARD TWEAKS INSIDE JOURNEY */
 /* ================================= */
 
-.card{
-  max-width:420px;
-  background:white;
-  padding:28px 30px;
-  border-radius:22px;
-  box-shadow:0 10px 30px rgba(0,0,0,.07);
-  line-height:1.65;
+.journey-item .card{
+  max-width:380px;
+  transform:rotate(.8deg);
+}
+
+.journey-item.right .card{
+  transform:rotate(-.8deg);
 }
 
 .card h3{
   color:#2b7dbf;
-  margin-bottom:14px;
-  font-size:1.3rem;
-}
-
-.card p{
-  font-size:1rem;
-  opacity:.9;
+  margin-bottom:10px;
 }
 
 /* ================================= */
@@ -153,54 +233,46 @@ h1{
 .closing{
   text-align:center;
   margin-top:120px;
-  margin-bottom:20px;
-  font-size:1.6rem;
+  font-size:1.4rem;
   color:#2b7dbf;
-  font-weight:500;
+  font-style:italic;
 }
 
 /* ================================= */
 /* MOBILE */
 /* ================================= */
 
-@media(max-width:900px){
+@media(max-width:768px){
 
   .journey{
-    padding:70px 20px 50px 20px;
+    padding:50px 20px;
   }
 
-  .journey-title{
-    font-size:2rem;
-    margin-bottom:70px;
+  .journey-line{
+    display:none;
   }
 
   .journey-item,
   .journey-item.right{
     flex-direction:column;
     text-align:center;
-    margin:100px 0;
+    margin:70px 0;
   }
 
   .journey-item img{
     width:100%;
     max-width:100%;
     height:auto;
+    transform:none;
   }
 
-  .card{
-    max-width:100%;
+  .journey-item .card{
+    transform:none;
   }
 
   .closing{
     margin-top:80px;
-    font-size:1.3rem;
+    font-size:1.2rem;
   }
 
-}
-
-/* Hide curve on small mobile for clarity */
-@media(max-width:768px){
-  .journey-line{
-    display:none;
-  }
 }
