@@ -226,6 +226,76 @@ p{
 }
 
 /* ================================= */
+/* COLLAGE PAGE */
+/* ================================= */
+
+.collage{
+  width:95%;
+  max-width:1400px;
+  margin:auto;
+  padding:clamp(60px,8vw,120px) 20px;
+  text-align:center;
+}
+
+.collage-title{
+  margin-bottom:60px;
+  font-size:clamp(2rem,3vw,2.5rem);
+  color:#7a5c42;
+}
+
+/* TABLE AREA */
+
+.photo-table{
+  position:relative;
+  min-height:1200px;
+}
+
+/* POLAROID STYLE */
+
+.polaroid{
+  position:absolute;
+  width:220px;
+  height:260px;
+  object-fit:cover;
+  background:white;
+  padding:10px;
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+  transition:transform .3s ease, box-shadow .3s ease;
+  cursor:pointer;
+}
+
+.polaroid:hover{
+  transform:scale(1.05) rotate(0deg) !important;
+  z-index:1000;
+  box-shadow:0 30px 60px rgba(0,0,0,.35);
+}
+
+/* RANDOM POSITIONS */
+.p1{ top:20px; left:5%; transform:rotate(-8deg); }
+.p2{ top:150px; left:25%; transform:rotate(6deg); }
+.p3{ top:80px; left:50%; transform:rotate(-4deg); }
+.p4{ top:250px; left:70%; transform:rotate(9deg); }
+.p5{ top:400px; left:10%; transform:rotate(5deg); }
+.p6{ top:500px; left:35%; transform:rotate(-6deg); }
+.p7{ top:450px; left:65%; transform:rotate(8deg); }
+.p8{ top:650px; left:15%; transform:rotate(-10deg); }
+.p9{ top:750px; left:45%; transform:rotate(7deg); }
+.p10{ top:850px; left:75%; transform:rotate(-5deg); }
+
+.p11{ top:1000px; left:5%; transform:rotate(6deg); }
+.p12{ top:1150px; left:30%; transform:rotate(-7deg); }
+.p13{ top:1050px; left:55%; transform:rotate(4deg); }
+.p14{ top:1250px; left:75%; transform:rotate(-9deg); }
+.p15{ top:1400px; left:15%; transform:rotate(3deg); }
+.p16{ top:1500px; left:40%; transform:rotate(-6deg); }
+.p17{ top:1450px; left:65%; transform:rotate(8deg); }
+.p18{ top:1700px; left:10%; transform:rotate(-4deg); }
+.p19{ top:1750px; left:35%; transform:rotate(6deg); }
+.p20{ top:1850px; left:60%; transform:rotate(-8deg); }
+.p21{ top:1950px; left:20%; transform:rotate(5deg); }
+.p22{ top:2050px; left:50%; transform:rotate(-6deg); }
+
+/* ================================= */
 /* LARGE SCREENS */
 /* ================================= */
 
@@ -300,5 +370,20 @@ p{
   .closing{
     margin:90px 0 50px;
     font-size:1.25rem;
+  }
+  
+  .photo-table{
+    position:static;
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:20px;
+    min-height:auto;
+  }
+
+  .polaroid{
+    position:relative;
+    width:100%;
+    height:auto;
+    transform:none !important;
   }
 }
