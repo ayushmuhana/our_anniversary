@@ -111,47 +111,57 @@ window.addEventListener("load", function(){
     const wrapper = document.querySelector(".journey-wrapper");
 
     function drawPath(){
-
+    
         if(items.length === 0) return;
-
+    
+        const wrapperRect = wrapper.getBoundingClientRect();
+    
         const wrapperWidth = wrapper.offsetWidth;
         const wrapperHeight = wrapper.scrollHeight;
-
-        // VERY IMPORTANT
+    
         svg.setAttribute("viewBox", `0 0 ${wrapperWidth} ${wrapperHeight}`);
         svg.setAttribute("height", wrapperHeight);
         svg.setAttribute("width", wrapperWidth);
-
+    
         let d = "";
-
+    
         items.forEach((item, i)=>{
-
+    
+            const itemRect = item.getBoundingClientRect();
+    
             const x = i % 2 === 0
                 ? wrapperWidth * 0.3
                 : wrapperWidth * 0.7;
-
-            const y = item.offsetTop + item.offsetHeight/2;
-
+    
+            // 🔥 FIXED Y CALCULATION
+            const y =
+                itemRect.top - wrapperRect.top +
+                itemRect.height / 2;
+    
             if(i === 0){
                 d += `M ${x} ${y}`;
             }else{
-
+    
+                const prevItemRect =
+                    items[i-1].getBoundingClientRect();
+    
                 const prevX = i % 2 === 0
                     ? wrapperWidth * 0.7
                     : wrapperWidth * 0.3;
-
+    
                 const prevY =
-                    items[i-1].offsetTop +
-                    items[i-1].offsetHeight/2;
-
+                    prevItemRect.top -
+                    wrapperRect.top +
+                    prevItemRect.height / 2;
+    
                 const curve = 250;
-
+    
                 d += ` C ${prevX} ${prevY + curve},
-                        ${x} ${y - curve},
-                        ${x} ${y}`;
+                       ${x} ${y - curve},
+                       ${x} ${y}`;
             }
         });
-
+    
         path.setAttribute("d", d);
     }
 
