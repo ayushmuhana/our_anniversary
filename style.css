@@ -281,7 +281,6 @@ p{
 .p8{ top:650px; left:15%; transform:rotate(-10deg); }
 .p9{ top:750px; left:45%; transform:rotate(7deg); }
 .p10{ top:850px; left:75%; transform:rotate(-5deg); }
-
 .p11{ top:1000px; left:5%; transform:rotate(6deg); }
 .p12{ top:1150px; left:30%; transform:rotate(-7deg); }
 .p13{ top:1050px; left:55%; transform:rotate(4deg); }
@@ -294,6 +293,33 @@ p{
 .p20{ top:1850px; left:60%; transform:rotate(-8deg); }
 .p21{ top:1950px; left:20%; transform:rotate(5deg); }
 .p22{ top:2050px; left:50%; transform:rotate(-6deg); }
+
+/* ================================= */
+/* MEMORIES BUTTON */
+/* ================================= */
+
+.memories-btn-wrapper{
+  text-align:center;
+  margin-top:60px;
+}
+
+.memories-btn{
+  display:inline-block;
+  padding:14px 34px;
+  background:#7a5c42;
+  color:#fff;
+  text-decoration:none;
+  border-radius:40px;
+  font-family:'Playfair Display', serif;
+  font-size:1rem;
+  letter-spacing:.4px;
+  transition:.3s ease;
+}
+
+.memories-btn:hover{
+  background:#5e4633;
+  transform:translateY(-2px);
+}
 
 /* ================================= */
 /* LARGE SCREENS */
