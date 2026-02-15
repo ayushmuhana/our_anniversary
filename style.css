@@ -1,5 +1,5 @@
 /* ================================= */
-/* GLOBAL RESET */
+/* RESET */
 /* ================================= */
 
 *{
@@ -14,84 +14,27 @@ html{
 
 body{
   font-family:'Georgia', serif;
-  color:#2f2f2f;
-  line-height:1.6;
-
   background:
-    linear-gradient(rgba(255,250,240,.80), rgba(255,250,240,.80)),
-    url("assets/paper-bg.jpg");
-
+    linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+    url("images/scrapbook-bg.jpg"); /* replace with your bg path */
   background-size:cover;
-  background-position:center;
   background-attachment:fixed;
+  background-position:center;
+  color:#5a4634; /* warm cocoa brown */
 }
 
-/* ================================= */
-/* TYPOGRAPHY */
-/* ================================= */
+img{
+  display:block;
+  max-width:100%;
+}
 
 h1,h2,h3{
-  font-weight:600;
+  font-weight:500;
   letter-spacing:.5px;
 }
 
 h1{
-  color:#2b7dbf;
-}
-
-p{
-  font-size:1rem;
-  opacity:.9;
-}
-
-/* ================================= */
-/* PAPER CARD STYLE (GLOBAL) */
-/* ================================= */
-
-.card{
-  background:#ffffff;
-  padding:28px;
-  border-radius:14px;
-
-  box-shadow:
-    0 8px 20px rgba(0,0,0,.06),
-    0 2px 6px rgba(0,0,0,.04);
-
-  position:relative;
-}
-
-/* subtle paper tape effect */
-.card::before{
-  content:"";
-  position:absolute;
-  top:-12px;
-  left:40px;
-  width:60px;
-  height:20px;
-  background:rgba(43,125,191,.15);
-  transform:rotate(-6deg);
-  border-radius:4px;
-}
-
-/* ================================= */
-/* BUTTON STYLE */
-/* ================================= */
-
-.btn{
-  display:inline-block;
-  margin-top:30px;
-  padding:12px 26px;
-  background:#2b7dbf;
-  color:white;
-  text-decoration:none;
-  border-radius:30px;
-  transition:.25s;
-  box-shadow:0 6px 18px rgba(43,125,191,.25);
-}
-
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 22px rgba(43,125,191,.35);
+  color:#7a5c42;
 }
 
 /* ================================= */
@@ -101,18 +44,19 @@ p{
 .container{
   max-width:820px;
   margin:auto;
-  padding:70px 20px 50px 20px;
+  padding:80px 20px 60px;
   text-align:center;
 }
 
 .letter{
-  margin-top:30px;
+  font-size:1.15rem;
+  line-height:1.9;
   text-align:left;
-  background:#ffffff;
-  padding:32px;
-  border-radius:16px;
-  box-shadow:0 15px 35px rgba(0,0,0,.08);
-  transform:rotate(-0.5deg);
+  background:rgba(255,255,255,0.9);
+  padding:40px;
+  border-radius:12px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.08);
+  position:relative;
 }
 
 .signature{
@@ -121,10 +65,25 @@ p{
 }
 
 .signature span{
-  display:block;
-  margin-top:4px;
   font-size:.9rem;
-  opacity:.7;
+  color:#8b7563;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:40px;
+  padding:14px 32px;
+  background:#7a5c42;
+  color:#fff;
+  text-decoration:none;
+  border-radius:40px;
+  transition:.3s ease;
+  letter-spacing:.5px;
+}
+
+.btn:hover{
+  background:#5e4633;
+  transform:translateY(-2px);
 }
 
 /* ================================= */
@@ -134,23 +93,23 @@ p{
 .journey{
   max-width:1100px;
   margin:auto;
-  padding:70px 20px 60px 20px;
+  padding:100px 20px 60px;
 }
 
 .journey-title{
   text-align:center;
   margin-bottom:90px;
   font-size:2.2rem;
+  color:#7a5c42;
 }
 
 /* WRAPPER */
 
 .journey-wrapper{
   position:relative;
-  padding-bottom:80px;
 }
 
-/* SVG CURVE */
+/* SVG PATH */
 
 .journey-line{
   position:absolute;
@@ -158,91 +117,92 @@ p{
   width:100%;
   height:100%;
   pointer-events:none;
-  z-index:0;
+  z-index:1;
 }
 
 .journey-line path{
-  stroke:#2b7dbf;
-  stroke-width:3;
+  stroke:#c8b6a6; /* soft scrapbook tone */
+  stroke-width:4;
   fill:none;
-  opacity:.25;
+  opacity:.7;
 }
 
-/* ================================= */
 /* JOURNEY ITEMS */
-/* ================================= */
 
 .journey-item{
   display:flex;
   align-items:center;
-  gap:40px;
-  margin:100px 0;
+  gap:60px;
+  margin:120px 0;
   position:relative;
   z-index:2;
+}
+
+.journey-item:first-child{
+  margin-top:40px;
 }
 
 .journey-item.right{
   flex-direction:row-reverse;
 }
 
-/* ================================= */
-/* SCRAPBOOK IMAGE STYLE */
-/* ================================= */
+/* IMAGES */
 
 .journey-item img{
-  width:460px;
-  max-width:45vw;
+  width:440px;
   height:320px;
   object-fit:cover;
-
-  padding:14px;
-  background:white;
   border-radius:10px;
-
-  box-shadow:
-    0 12px 28px rgba(0,0,0,.12);
-
-  transform:rotate(-1.5deg);
+  box-shadow:0 20px 50px rgba(0,0,0,.15);
+  transform:rotate(-1deg);
   transition:.4s ease;
 }
 
-/* alternate slight rotation for variation */
 .journey-item.right img{
-  transform:rotate(1.5deg);
+  transform:rotate(1deg);
 }
 
 .journey-item img:hover{
   transform:scale(1.03) rotate(0deg);
 }
 
-/* ================================= */
-/* CARD TWEAKS INSIDE JOURNEY */
-/* ================================= */
+/* CARD (Scrapbook Note Style) */
 
-.journey-item .card{
-  max-width:380px;
-  transform:rotate(.8deg);
-}
-
-.journey-item.right .card{
-  transform:rotate(-.8deg);
+.card{
+  max-width:420px;
+  background:#fdfaf6;
+  padding:28px 32px;
+  border-radius:10px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  line-height:1.7;
+  position:relative;
 }
 
 .card h3{
-  color:#2b7dbf;
+  color:#6b4f3a;
   margin-bottom:10px;
 }
 
-/* ================================= */
+/* subtle paper tape effect */
+.card::before{
+  content:"";
+  position:absolute;
+  width:80px;
+  height:18px;
+  background:#e9d8c7;
+  top:-10px;
+  left:20px;
+  transform:rotate(-3deg);
+  opacity:.8;
+}
+
 /* CLOSING */
-/* ================================= */
 
 .closing{
   text-align:center;
-  margin-top:120px;
+  margin:120px 0 40px;
   font-size:1.4rem;
-  color:#2b7dbf;
-  font-style:italic;
+  color:#7a5c42;
 }
 
 /* ================================= */
@@ -252,7 +212,12 @@ p{
 @media(max-width:768px){
 
   .journey{
-    padding:50px 20px;
+    padding:70px 20px 40px;
+  }
+
+  .journey-title{
+    font-size:1.8rem;
+    margin-bottom:60px;
   }
 
   .journey-line{
@@ -263,23 +228,21 @@ p{
   .journey-item.right{
     flex-direction:column;
     text-align:center;
-    margin:70px 0;
+    margin:80px 0;
   }
 
   .journey-item img{
     width:100%;
-    max-width:100%;
     height:auto;
     transform:none;
   }
 
-  .journey-item .card{
-    transform:none;
+  .card{
+    margin-top:20px;
   }
 
   .closing{
-    margin-top:80px;
+    margin:80px 0 30px;
     font-size:1.2rem;
   }
-
 }
