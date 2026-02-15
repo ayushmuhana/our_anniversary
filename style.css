@@ -1,6 +1,6 @@
-/* ================================= */
+/* ================================================= */
 /* RESET */
-/* ================================= */
+/* ================================================= */
 
 *{
   box-sizing:border-box;
@@ -30,9 +30,14 @@ img{
   height:auto;
 }
 
-/* ================================= */
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* ================================================= */
 /* TYPOGRAPHY */
-/* ================================= */
+/* ================================================= */
 
 h1,h2,h3{
   font-family:'Playfair Display', serif;
@@ -49,20 +54,20 @@ p{
   font-size:clamp(1.05rem, 1.1vw, 1.15rem);
 }
 
-/* ================================= */
+/* ================================================= */
 /* LETTER PAGE */
-/* ================================= */
+/* ================================================= */
 
 .container{
   width:92%;
   max-width:820px;
   margin:auto;
-  padding:clamp(80px,8vw,120px) 20px 80px;
+  padding:clamp(90px,8vw,130px) 20px 90px;
   text-align:center;
 }
 
 .container h1{
-  margin-bottom:clamp(50px,6vw,80px);
+  margin-bottom:clamp(55px,6vw,85px);
 }
 
 .letter{
@@ -89,7 +94,6 @@ p{
   padding:15px 36px;
   background:#7a5c42;
   color:#fff;
-  text-decoration:none;
   border-radius:40px;
   transition:.3s ease;
 }
@@ -99,15 +103,15 @@ p{
   transform:translateY(-2px);
 }
 
-/* ================================= */
+/* ================================================= */
 /* JOURNEY SECTION */
-/* ================================= */
+/* ================================================= */
 
 .journey{
   width:92%;
-  max-width:1100px;   /* ideal for 13" laptop */
+  max-width:1100px;
   margin:auto;
-  padding:clamp(90px,10vw,150px) 20px 90px;
+  padding:clamp(90px,10vw,150px) 20px 100px;
 }
 
 .journey-title{
@@ -119,9 +123,7 @@ p{
   position:relative;
 }
 
-/* ================================= */
-/* SVG LINE */
-/* ================================= */
+/* SVG Line */
 
 .journey-line{
   position:absolute;
@@ -139,9 +141,7 @@ p{
   fill:none;
 }
 
-/* ================================= */
-/* JOURNEY ITEMS */
-/* ================================= */
+/* Journey Items */
 
 .journey-item{
   display:flex;
@@ -157,13 +157,11 @@ p{
   flex-direction:row-reverse;
 }
 
-/* ================================= */
-/* IMAGE */
-/* ================================= */
+/* Image */
 
 .journey-item img{
   flex: 1 1 42%;
-  max-width:480px;   /* balanced for 13" */
+  max-width:480px;
   border-radius:14px;
   box-shadow:0 22px 55px rgba(0,0,0,.15);
   transform:rotate(-1deg);
@@ -175,12 +173,10 @@ p{
 }
 
 .journey-item img:hover{
-  transform:scale(1.03) rotate(0deg);
+  transform:scale(1.04) rotate(0deg);
 }
 
-/* ================================= */
-/* CARD */
-/* ================================= */
+/* Card */
 
 .card{
   flex:1 1 48%;
@@ -198,8 +194,6 @@ p{
   font-size:clamp(1.3rem,1.4vw,1.6rem);
 }
 
-/* Scrapbook Tape */
-
 .card::before{
   content:"";
   position:absolute;
@@ -212,56 +206,86 @@ p{
   opacity:.85;
 }
 
-/* ================================= */
-/* CLOSING */
-/* ================================= */
+/* Closing */
 
 .closing{
   text-align:center;
-  margin-top:clamp(90px,9vw,150px);
+  margin-top:clamp(100px,9vw,160px);
   font-size:clamp(1.3rem,1.6vw,1.8rem);
   color:#7a5c42;
   font-style:italic;
   font-family:'Playfair Display', serif;
 }
 
-/* ================================= */
+/* Memories Button */
+
+.memories-btn-wrapper{
+  text-align:center;
+  margin-top:50px;
+}
+
+.memories-btn{
+  display:inline-block;
+  padding:14px 34px;
+  background:#7a5c42;
+  color:#fff;
+  border-radius:40px;
+  font-family:'Playfair Display', serif;
+  transition:.3s ease;
+}
+
+.memories-btn:hover{
+  background:#5e4633;
+  transform:translateY(-2px);
+}
+
+/* ================================================= */
 /* COLLAGE PAGE */
-/* ================================= */
+/* ================================================= */
 
 .collage{
   width:95%;
   max-width:1400px;
   margin:auto;
-  padding:clamp(60px,8vw,120px) 20px;
+  padding:clamp(80px,8vw,130px) 20px;
   text-align:center;
 }
 
 .collage-title{
-  margin-bottom:60px;
-  font-size:clamp(2rem,3vw,2.5rem);
+  margin-bottom:80px;
+  font-size:clamp(2rem,3vw,2.6rem);
   color:#7a5c42;
 }
 
-/* TABLE AREA */
-
 .photo-table{
   position:relative;
-  min-height:1200px;
+  min-height:2200px;
 }
 
-/* POLAROID STYLE */
+/* Polaroid */
 
 .polaroid{
   position:absolute;
   width:220px;
-  height:260px;
-  object-fit:cover;
   background:white;
-  padding:10px;
+  padding:12px 12px 20px;
   box-shadow:0 20px 40px rgba(0,0,0,.25);
   transition:transform .3s ease, box-shadow .3s ease;
   cursor:pointer;
+  text-align:center;
+}
+
+.polaroid img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  margin-bottom:12px;
+}
+
+.polaroid p{
+  font-family:'Dancing Script', cursive;
+  font-size:1rem;
+  color:#5a4634;
 }
 
 .polaroid:hover{
@@ -270,7 +294,8 @@ p{
   box-shadow:0 30px 60px rgba(0,0,0,.35);
 }
 
-/* RANDOM POSITIONS */
+/* Random positions */
+
 .p1{ top:20px; left:5%; transform:rotate(-8deg); }
 .p2{ top:150px; left:25%; transform:rotate(6deg); }
 .p3{ top:80px; left:50%; transform:rotate(-4deg); }
@@ -294,67 +319,35 @@ p{
 .p21{ top:1950px; left:20%; transform:rotate(5deg); }
 .p22{ top:2050px; left:50%; transform:rotate(-6deg); }
 
-/* ================================= */
-/* MEMORIES BUTTON */
-/* ================================= */
+/* Ending line */
 
-.memories-btn-wrapper{
-  text-align:center;
-  margin-top:60px;
-}
-
-.memories-btn{
-  display:inline-block;
-  padding:14px 34px;
-  background:#7a5c42;
-  color:#fff;
-  text-decoration:none;
-  border-radius:40px;
+.collage-ending{
+  margin-top:200px;
+  font-size:clamp(1.4rem,1.8vw,2rem);
+  font-style:italic;
   font-family:'Playfair Display', serif;
-  font-size:1rem;
-  letter-spacing:.4px;
-  transition:.3s ease;
+  color:#7a5c42;
+  max-width:900px;
+  margin-left:auto;
+  margin-right:auto;
+  line-height:1.5;
 }
 
-.memories-btn:hover{
-  background:#5e4633;
-  transform:translateY(-2px);
-}
-
-/* ================================= */
-/* LARGE SCREENS */
-/* ================================= */
-
-@media (min-width:1600px){
-
-  .journey{
-    max-width:1200px;
-  }
-
-  .journey-item img{
-    max-width:520px;
-  }
-}
-
-/* ================================= */
-/* TABLETS */
-/* ================================= */
+/* ================================================= */
+/* RESPONSIVE */
+/* ================================================= */
 
 @media (max-width:1100px){
 
   .journey-item{
-    gap:50px;
+    flex-direction:column;
+    text-align:center;
   }
 
-  .journey-item img,
-  .card{
-    flex:1 1 100%;
+  .journey-item.right{
+    flex-direction:column;
   }
 }
-
-/* ================================= */
-/* MOBILE */
-/* ================================= */
 
 @media (max-width:768px){
 
@@ -362,46 +355,25 @@ p{
     display:none;
   }
 
-  .journey-item,
-  .journey-item.right{
-    flex-direction:column;
-    align-items:center;
-    gap:18px;
+  .journey-item{
+    gap:20px;
     margin:80px 0;
   }
 
   .journey-item img{
-    width:100%;
     max-width:100%;
     transform:none;
-    box-shadow:0 15px 35px rgba(0,0,0,.12);
   }
 
   .card{
     width:94%;
-    max-width:94%;
     margin-top:-18px;
-    padding:24px 26px;
-    box-shadow:0 10px 25px rgba(0,0,0,.06);
   }
 
-  .card::before{
-    width:95px;
-    height:20px;
-    top:-14px;
-    left:50%;
-    transform:translateX(-50%) rotate(-3deg);
-  }
-
-  .closing{
-    margin:90px 0 50px;
-    font-size:1.25rem;
-  }
-  
   .photo-table{
     position:static;
     display:grid;
-    grid-template-columns:repeat(2, 1fr);
+    grid-template-columns:repeat(2,1fr);
     gap:20px;
     min-height:auto;
   }
@@ -409,7 +381,14 @@ p{
   .polaroid{
     position:relative;
     width:100%;
-    height:auto;
     transform:none !important;
+  }
+
+  .polaroid img{
+    height:160px;
+  }
+
+  .collage-ending{
+    margin-top:100px;
   }
 }
