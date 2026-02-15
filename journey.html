@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Journey</title>
-
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -19,19 +18,8 @@ Our Story — Across Every Lifetime 💙
 <div class="journey-wrapper">
 
 <!-- SVG LINE -->
-<svg class="journey-line"
-     viewBox="0 0 1000 2000"
-     width="1000"
-     height="2000"
-     style="position:absolute; top:0; left:0; z-index:999;">
-
-    <path
-        d="M 100 100 L 900 1800"
-        stroke="red"
-        stroke-width="20"
-        fill="none">
-    </path>
-
+<svg class="journey-line" preserveAspectRatio="none">
+    <path d="" />
 </svg>
 
 <!-- MEMORY ITEMS -->
@@ -44,7 +32,6 @@ Our Story — Across Every Lifetime 💙
     </div>
 </div>
 
-
 <div class="journey-item right">
     <img src="timeline/10th Century.png">
     <div class="card">
@@ -52,7 +39,6 @@ Our Story — Across Every Lifetime 💙
         <p>Maybe destiny was already pulling us together.</p>
     </div>
 </div>
-
 
 <div class="journey-item">
     <img src="timeline/Pre_Independence.png">
@@ -62,7 +48,6 @@ Our Story — Across Every Lifetime 💙
     </div>
 </div>
 
-
 <div class="journey-item right">
     <img src="timeline/80s.png">
     <div class="card">
@@ -70,7 +55,6 @@ Our Story — Across Every Lifetime 💙
         <p>I know I still would’ve fallen for that smile.</p>
     </div>
 </div>
-
 
 <div class="journey-item">
     <img src="timeline/Modern.png">
@@ -80,9 +64,7 @@ Our Story — Across Every Lifetime 💙
     </div>
 </div>
 
-
 </div>
-
 
 <div class="closing">
 Still choosing you — in this lifetime and the next.
@@ -91,7 +73,6 @@ Still choosing you — in this lifetime and the next.
 </section>
 
 <script>
-
 window.addEventListener("load", function(){
 
     const items = document.querySelectorAll(".journey-item");
@@ -100,74 +81,61 @@ window.addEventListener("load", function(){
     const wrapper = document.querySelector(".journey-wrapper");
 
     function drawPath(){
-    
-        if(items.length === 0) return;
-    
+
         const wrapperRect = wrapper.getBoundingClientRect();
-    
         const wrapperWidth = wrapper.offsetWidth;
         const wrapperHeight = wrapper.scrollHeight;
-    
+
         svg.setAttribute("viewBox", `0 0 ${wrapperWidth} ${wrapperHeight}`);
         svg.setAttribute("height", wrapperHeight);
         svg.setAttribute("width", wrapperWidth);
-    
+
         let d = "";
-    
+
         items.forEach((item, i)=>{
-    
-            const itemRect = item.getBoundingClientRect();
-    
+
+            const rect = item.getBoundingClientRect();
+
+            // Keep curve in empty space
             const x = i % 2 === 0
-                ? wrapperWidth * 0.3
-                : wrapperWidth * 0.7;
-    
-            // 🔥 FIXED Y CALCULATION
+                ? wrapperWidth * 0.18
+                : wrapperWidth * 0.82;
+
             const y =
-                itemRect.top - wrapperRect.top +
-                itemRect.height / 2;
-    
+                rect.top - wrapperRect.top +
+                rect.height / 2;
+
             if(i === 0){
                 d += `M ${x} ${y}`;
-            }else{
-    
-                const prevItemRect =
+            } else {
+
+                const prevRect =
                     items[i-1].getBoundingClientRect();
-    
+
                 const prevX = i % 2 === 0
-                    ? wrapperWidth * 0.7
-                    : wrapperWidth * 0.3;
-    
+                    ? wrapperWidth * 0.82
+                    : wrapperWidth * 0.18;
+
                 const prevY =
-                    prevItemRect.top -
+                    prevRect.top -
                     wrapperRect.top +
-                    prevItemRect.height / 2;
-    
-                const curve = 250;
-    
+                    prevRect.height / 2;
+
+                const curve = 200;
+
                 d += ` C ${prevX} ${prevY + curve},
                        ${x} ${y - curve},
                        ${x} ${y}`;
             }
         });
-    
+
         path.setAttribute("d", d);
     }
 
     drawPath();
-    console.log(path);
-    console.log(path.getAttribute("d"));
-
-    // resize safe
-    let resizeTimer;
-
-    window.addEventListener("resize", ()=>{
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(drawPath, 200);
-    });
+    window.addEventListener("resize", drawPath);
 
 });
-
 </script>
 
 </body>
