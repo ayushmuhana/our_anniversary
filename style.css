@@ -15,7 +15,7 @@ html{
 body{
   font-family:'Georgia', serif;
   background:
-    linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+    linear-gradient(rgba(244, 236, 226, 0.75), rgba(244, 236, 226, 0.75)),
     url("assets/paper-bg.jpg"); /* replace with your bg path */
   background-size:cover;
   background-attachment:fixed;
