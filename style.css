@@ -248,7 +248,8 @@ p{
 
 .photo-table{
   position:relative;
-  min-height:2300px; /* slightly increased for safety */
+  min-height:2300px; 
+  margin-bottom:120px; /* space before ending */
 }
 
 /* Polaroid */
@@ -309,7 +310,8 @@ p{
 .p22{ top:2050px; left:50%; transform:rotate(-6deg); }
 
 .collage-ending{
-  margin-top:2600px; /* ensures it stays below last photo */
+  margin-top:0;
+  margin-bottom:80px;
   font-size:clamp(1.4rem,1.8vw,2rem);
   font-style:italic;
   font-family:'Playfair Display', serif;
@@ -395,7 +397,7 @@ p{
   }
 
   .collage-ending{
-    margin-top:80px;
+    margin-top:60px 0 40px;
     padding:0 20px;
     font-size:1.3rem;
   }
